@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amandeep Children Hospital | Hansi</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-blue: #0ea5e9;
+            --hospital-teal: #0d9488;
+            --soft-bg: #f0f9ff;
+            --white: #ffffff;
+            --text-dark: #0f172a;
+            --emergency-red: #f43f5e;
+            --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--text-dark);
+            margin: 0;
+            padding-bottom: 0;
+            overflow-x: hidden;
+        }
+
+        .container-main {
+            max-width: 540px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        /* Hospital Logo Section */
+        .header-section {
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        .hospital-logo-box {
+            width: 120px;
+            height: 120px;
+            background: var(--white);
+            border-radius: 40px; /* Squircle design */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: var(--card-shadow);
+            border: 5px solid var(--white);
+            overflow: hidden;
+        }
+
+        .hospital-logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hospital-name {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .hospital-bio {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Doctor Expert Card */
+        .doctor-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .dr-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .dr-info h6 {
+            margin: 0;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .dr-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--hospital-teal);
+            font-weight: 600;
+        }
+
+        /* Action Grid */
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .btn-action {
+            padding: 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-emergency {
+            background: var(--emergency-red);
+            color: white;
+            grid-column: span 2;
+            flex-direction: row;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-emergency:hover {
+            background: #e11d48;
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .btn-contact {
+            background: var(--white);
+            color: var(--text-dark);
+        }
+
+        .btn-contact:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Service Links */
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #94a3b8;
+            margin-left: 15px;
+            margin-bottom: 12px;
+        }
+
+        .link-card {
+            background: var(--white);
+            margin-bottom: 12px;
+            padding: 16px 20px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .link-card:hover {
+            transform: translateX(5px);
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        .link-icon-box {
+            width: 42px;
+            height: 42px;
+            background: #f0f9ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+        }
+
+        /* Map Card */
+        .map-card {
+            background: var(--white);
+            padding: 12px;
+            border-radius: 35px;
+            box-shadow: var(--card-shadow);
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .map-header {
+            padding: 10px 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .map-iframe-container {
+            border-radius: 25px;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+        }
+
+        .address-box {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* Premium Footer */
+        .footer-premium {
+            background: var(--white);
+            margin-top: 50px;
+            padding: 40px 20px;
+            border-radius: 50px 50px 0 0;
+            text-align: center;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.03);
+        }
+
+        .footer-motto {
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--soft-bg);
+            color: var(--primary-blue);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .copyright-text {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* Animations */
+        .animate-up {
+            animation: slideUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+    </style>
+</head>
+<body>
+
+<div class="container-main">
+    <!-- Hospital Header and Logo -->
+    <header class="header-section animate-up">
+        <div class="hospital-logo-box">
+            <!-- Replace with your actual Logo Image URL -->
+            <img src="logo.jpg" alt="Amandeep Children Hospital Logo">
+        </div>
+        <h1 class="hospital-name">Amandeep Children Hospital</h1>
+        <p class="hospital-bio">Leading pediatric healthcare center in Hansi, dedicated to providing comprehensive medical care for newborns, infants, and children.</p>
+    </header>
+
+    <!-- Doctor Information -->
+    <div class="doctor-card animate-up delay-1">
+        <div class="dr-icon"><i class="bi bi-person-heart"></i></div>
+        <div class="dr-info">
+            <h6>Dr. Amandeep Saini</h6>
+            <p>MBBS, DCH, DNB (Pediatrics Specialist)</p>
+        </div>
+    </div>
+
+    <!-- Quick Contact Actions -->
+    <div class="action-grid animate-up delay-1">
+        <a href="tel:+917057083013" class="btn-action btn-emergency">
+            <i class="bi bi-telephone-plus-fill"></i>
+            <div>24x7 EMERGENCY: +91 70570 83013</div>
+        </a>
+        <a href="https://wa.me/917057083013" class="btn-action btn-contact">
+            <i class="bi bi-whatsapp fs-3 text-success"></i>
+            <span>WhatsApp Us</span>
+        </a>
+        <a href="mailto:amandeepsaini401@gmail.com" class="btn-action btn-contact">
+            <i class="bi bi-envelope-at fs-3 text-primary"></i>
+            <span>Email Us</span>
+        </a>
+    </div>
+
+    <!-- Our Services -->
+    <div class="section-label animate-up delay-2">Our Specialized Services</div>
+    <div class="animate-up delay-2">
+        <a href="#" class="link-card">
+            <div class="link-icon-box"><i class="bi bi-shield-check"></i></div>
+            <span>NICU (Neonatal Intensive Care)</span>
+            <i class="bi bi-chevron-right ms-auto opacity-25"></i>
+        </a>
+        <a href="#" class="link-card">
+            <div class="link-icon-box"><i class="bi bi-pulse"></i></div>
+            <span>PICU & Ventilator Support</span>
+            <i class="bi bi-chevron-right ms-auto opacity-25"></i>
+        </a>
+        <a href="#" class="link-card">
+            <div class="link-icon-box"><i class="bi bi-sun"></i></div>
+            <span>Phototherapy for Newborns</span>
+            <i class="bi bi-chevron-right ms-auto opacity-25"></i>
+        </a>
+        <a href="#" class="link-card">
+            <div class="link-icon-box"><i class="bi bi-patch-check"></i></div>
+            <span>Immunization (Vaccination)</span>
+            <i class="bi bi-chevron-right ms-auto opacity-25"></i>
+        </a>
+        <a href="#" class="link-card">
+            <div class="link-icon-box"><i class="bi bi-wind"></i></div>
+            <span>Asthma & Allergy Clinic</span>
+            <i class="bi bi-chevron-right ms-auto opacity-25"></i>
+        </a>
+    </div>
+
+    <!-- Visit Us / Map section -->
+    <div class="map-card animate-up delay-3">
+        <div class="map-header">
+            <i class="bi bi-geo-alt-fill text-danger"></i> Visit Our Hospital
+        </div>
+        <div class="map-iframe-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3486.3961642093673!2d75.95894727551784!3d29.093983375415952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3912390050c8aba5%3A0x39e662c40108d880!2sAmandeep%20children%20hospital!5e0!3m2!1sen!2sin!4v1774946429310!5m2!1sen!2sin" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="address-box">
+            <i class="bi bi-building"></i> Ambedkar Chowk, Near Cham Children Hospital, Hansi, Haryana
+        </div>
+    </div>
+</div>
+
+<!-- Premium Footer -->
+<footer class="footer-premium animate-up delay-4">
+    <div class="footer-motto">Best Healthcare for Your Children</div>
+    <div class="footer-socials">
+        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+        <a href="https://wa.me/917057083013" class="social-link"><i class="bi bi-whatsapp"></i></a>
+    </div>
+    <p class="copyright-text">
+        © Crafted by OM ADVERTISEMENT , Hansi <br>
+        <span class="text-muted small">+91 87086 46546 /span>
+    </p>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
